@@ -1,0 +1,722 @@
+[
+  {
+    "codigo": "TT-001",
+    "nombre": "Caja Pelotas Stiga Entrenamiento Blanco x120",
+    "categoria": "Pelotas",
+    "precio": 43700,
+    "stock": 60,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-001.jpg"
+  },
+  {
+    "codigo": "TT-002",
+    "nombre": "Pegamento DHS VOC Free Glue No. 15 50ml",
+    "categoria": "Accesorios",
+    "precio": 26100,
+    "stock": 89,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Pegamentos.",
+    "imagen": "img/productos/TT-002.jpg"
+  },
+  {
+    "codigo": "TT-003",
+    "nombre": "Goma Joola Rhyzm-P Negra MAX",
+    "categoria": "Gomas",
+    "precio": 46400,
+    "stock": 49,
+    "descripcion": "Categoría: Gomas | Subcategoría: Lisas.",
+    "imagen": "img/productos/TT-003.jpg"
+  },
+  {
+    "codigo": "TT-004",
+    "nombre": "Goma Yasaka Rakza Z Roja MAX",
+    "categoria": "Gomas",
+    "precio": 66800,
+    "stock": 88,
+    "descripcion": "Categoría: Gomas | Subcategoría: Picos Cortos.",
+    "imagen": "img/productos/TT-004.jpg"
+  },
+  {
+    "codigo": "TT-005",
+    "nombre": "Madera Stiga Cybershape Carbon Ofensiva",
+    "categoria": "Maderas",
+    "precio": 240600,
+    "stock": 26,
+    "descripcion": "Categoría: Maderas | Subcategoría: Ofensiva (OFF).",
+    "imagen": "img/productos/TT-005.jpg"
+  },
+  {
+    "codigo": "TT-006",
+    "nombre": "Caja Pelotas Tibhar Entrenamiento Blanco x120",
+    "categoria": "Pelotas",
+    "precio": 60000,
+    "stock": 11,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-006.jpg"
+  },
+  {
+    "codigo": "TT-007",
+    "nombre": "Zapatillas Xiom Footwork Talla 43",
+    "categoria": "Vestuario",
+    "precio": 125400,
+    "stock": 51,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-007.jpg"
+  },
+  {
+    "codigo": "TT-008",
+    "nombre": "Madera Yasaka Ma Lin Extra Offensive All-Round",
+    "categoria": "Maderas",
+    "precio": 198000,
+    "stock": 95,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-008.jpg"
+  },
+  {
+    "codigo": "TT-009",
+    "nombre": "Caja Pelotas Xiom Entrenamiento Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 64500,
+    "stock": 26,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-009.jpg"
+  },
+  {
+    "codigo": "TT-010",
+    "nombre": "Short Donic Azul Talla S",
+    "categoria": "Vestuario",
+    "precio": 64500,
+    "stock": 33,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Shorts.",
+    "imagen": "img/productos/TT-010.jpg"
+  },
+  {
+    "codigo": "TT-011",
+    "nombre": "Red Xiom Profesional con Soporte",
+    "categoria": "Accesorios",
+    "precio": 31800,
+    "stock": 63,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Redes.",
+    "imagen": "img/productos/TT-011.jpg"
+  },
+  {
+    "codigo": "TT-012",
+    "nombre": "Caja Pelotas DHS 3 Estrellas Blanco x120",
+    "categoria": "Pelotas",
+    "precio": 57300,
+    "stock": 54,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-012.jpg"
+  },
+  {
+    "codigo": "TT-013",
+    "nombre": "Short Yasaka Azul Talla XL",
+    "categoria": "Vestuario",
+    "precio": 47000,
+    "stock": 61,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Shorts.",
+    "imagen": "img/productos/TT-013.jpg"
+  },
+  {
+    "codigo": "TT-014",
+    "nombre": "Caja Pelotas Butterfly 3 Estrellas Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 17700,
+    "stock": 22,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-014.jpg"
+  },
+  {
+    "codigo": "TT-015",
+    "nombre": "Madera DHS Fang Bo Carbon Ofensiva",
+    "categoria": "Maderas",
+    "precio": 177500,
+    "stock": 59,
+    "descripcion": "Categoría: Maderas | Subcategoría: Ofensiva (OFF).",
+    "imagen": "img/productos/TT-015.jpg"
+  },
+  {
+    "codigo": "TT-016",
+    "nombre": "Red Nittaku Profesional con Soporte",
+    "categoria": "Accesorios",
+    "precio": 35200,
+    "stock": 37,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Redes.",
+    "imagen": "img/productos/TT-016.jpg"
+  },
+  {
+    "codigo": "TT-017",
+    "nombre": "Goma Stiga Mantra M Roja MAX",
+    "categoria": "Gomas",
+    "precio": 79700,
+    "stock": 95,
+    "descripcion": "Categoría: Gomas | Subcategoría: Lisas.",
+    "imagen": "img/productos/TT-017.jpg"
+  },
+  {
+    "codigo": "TT-018",
+    "nombre": "Goma Tibhar Evolution MX-P Roja MAX",
+    "categoria": "Gomas",
+    "precio": 34800,
+    "stock": 43,
+    "descripcion": "Categoría: Gomas | Subcategoría: Picos Cortos.",
+    "imagen": "img/productos/TT-018.jpg"
+  },
+  {
+    "codigo": "TT-019",
+    "nombre": "Funda Butterfly para 1 Paleta",
+    "categoria": "Accesorios",
+    "precio": 16500,
+    "stock": 88,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Fundas.",
+    "imagen": "img/productos/TT-019.jpg"
+  },
+  {
+    "codigo": "TT-020",
+    "nombre": "Mesa de Tenis de Mesa Tibhar Smash 28 R Competición",
+    "categoria": "Mesas",
+    "precio": 1225400,
+    "stock": 1,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-020.jpg"
+  },
+  {
+    "codigo": "TT-021",
+    "nombre": "Madera Stiga Clipper Wood Defensiva",
+    "categoria": "Maderas",
+    "precio": 190200,
+    "stock": 75,
+    "descripcion": "Categoría: Maderas | Subcategoría: Defensiva (DEF).",
+    "imagen": "img/productos/TT-021.jpg"
+  },
+  {
+    "codigo": "TT-022",
+    "nombre": "Camiseta Stiga Negro Talla S",
+    "categoria": "Vestuario",
+    "precio": 57300,
+    "stock": 55,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-022.jpg"
+  },
+  {
+    "codigo": "TT-023",
+    "nombre": "Caja Pelotas Yasaka Entrenamiento Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 20100,
+    "stock": 78,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-023.jpg"
+  },
+  {
+    "codigo": "TT-024",
+    "nombre": "Madera Donic Appelgren Allplay All-Round",
+    "categoria": "Maderas",
+    "precio": 94000,
+    "stock": 79,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-024.jpg"
+  },
+  {
+    "codigo": "TT-025",
+    "nombre": "Zapatillas DHS Pro Shoes Talla 40",
+    "categoria": "Vestuario",
+    "precio": 135400,
+    "stock": 83,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-025.jpg"
+  },
+  {
+    "codigo": "TT-026",
+    "nombre": "Caja Pelotas Butterfly Entrenamiento Naranja x120",
+    "categoria": "Pelotas",
+    "precio": 40600,
+    "stock": 16,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-026.jpg"
+  },
+  {
+    "codigo": "TT-027",
+    "nombre": "Caja Pelotas Butterfly Entrenamiento Blanco x120",
+    "categoria": "Pelotas",
+    "precio": 18900,
+    "stock": 93,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-027.jpg"
+  },
+  {
+    "codigo": "TT-028",
+    "nombre": "Short Donic Azul Talla M",
+    "categoria": "Vestuario",
+    "precio": 35900,
+    "stock": 75,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Shorts.",
+    "imagen": "img/productos/TT-028.jpg"
+  },
+  {
+    "codigo": "TT-029",
+    "nombre": "Mesa de Tenis de Mesa Stiga Optimum 30 Exterior",
+    "categoria": "Mesas",
+    "precio": 1314900,
+    "stock": 6,
+    "descripcion": "Categoría: Mesas | Subcategoría: Exterior.",
+    "imagen": "img/productos/TT-029.jpg"
+  },
+  {
+    "codigo": "TT-030",
+    "nombre": "Zapatillas DHS Pro Shoes Talla 42",
+    "categoria": "Vestuario",
+    "precio": 91100,
+    "stock": 49,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-030.jpg"
+  },
+  {
+    "codigo": "TT-031",
+    "nombre": "Madera Butterfly Timo Boll ALC Defensiva",
+    "categoria": "Maderas",
+    "precio": 87300,
+    "stock": 21,
+    "descripcion": "Categoría: Maderas | Subcategoría: Defensiva (DEF).",
+    "imagen": "img/productos/TT-031.jpg"
+  },
+  {
+    "codigo": "TT-032",
+    "nombre": "Zapatillas Butterfly Lezoline Mach Talla 45",
+    "categoria": "Vestuario",
+    "precio": 84500,
+    "stock": 90,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-032.jpg"
+  },
+  {
+    "codigo": "TT-033",
+    "nombre": "Madera Donic Appelgren Allplay Defensiva",
+    "categoria": "Maderas",
+    "precio": 265900,
+    "stock": 18,
+    "descripcion": "Categoría: Maderas | Subcategoría: Defensiva (DEF).",
+    "imagen": "img/productos/TT-033.jpg"
+  },
+  {
+    "codigo": "TT-034",
+    "nombre": "Red Butterfly Profesional con Soporte",
+    "categoria": "Accesorios",
+    "precio": 30600,
+    "stock": 6,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Redes.",
+    "imagen": "img/productos/TT-034.jpg"
+  },
+  {
+    "codigo": "TT-035",
+    "nombre": "Mesa de Tenis de Mesa Tibhar Normec Competición",
+    "categoria": "Mesas",
+    "precio": 1013200,
+    "stock": 8,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-035.jpg"
+  },
+  {
+    "codigo": "TT-036",
+    "nombre": "Mesa de Tenis de Mesa Tibhar Smash 28 R Competición",
+    "categoria": "Mesas",
+    "precio": 857800,
+    "stock": 4,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-036.jpg"
+  },
+  {
+    "codigo": "TT-037",
+    "nombre": "Madera Yasaka Ma Lin Extra Offensive All-Round",
+    "categoria": "Maderas",
+    "precio": 116300,
+    "stock": 24,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-037.jpg"
+  },
+  {
+    "codigo": "TT-038",
+    "nombre": "Madera Nittaku Acoustic Defensiva",
+    "categoria": "Maderas",
+    "precio": 104600,
+    "stock": 81,
+    "descripcion": "Categoría: Maderas | Subcategoría: Defensiva (DEF).",
+    "imagen": "img/productos/TT-038.jpg"
+  },
+  {
+    "codigo": "TT-039",
+    "nombre": "Caja Pelotas Xiom Entrenamiento Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 46900,
+    "stock": 53,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-039.jpg"
+  },
+  {
+    "codigo": "TT-040",
+    "nombre": "Caja Pelotas Tibhar 3 Estrellas Blanco x6",
+    "categoria": "Pelotas",
+    "precio": 26800,
+    "stock": 42,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-040.jpg"
+  },
+  {
+    "codigo": "TT-041",
+    "nombre": "Mesa de Tenis de Mesa Yasaka Progress Competición",
+    "categoria": "Mesas",
+    "precio": 1078100,
+    "stock": 1,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-041.jpg"
+  },
+  {
+    "codigo": "TT-042",
+    "nombre": "Madera Yasaka Alnade All-Round",
+    "categoria": "Maderas",
+    "precio": 82900,
+    "stock": 83,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-042.jpg"
+  },
+  {
+    "codigo": "TT-043",
+    "nombre": "Goma Joola Tango Negra MAX",
+    "categoria": "Gomas",
+    "precio": 81500,
+    "stock": 64,
+    "descripcion": "Categoría: Gomas | Subcategoría: Picos Largos.",
+    "imagen": "img/productos/TT-043.jpg"
+  },
+  {
+    "codigo": "TT-044",
+    "nombre": "Mesa de Tenis de Mesa Butterfly Space Saver 22 Exterior",
+    "categoria": "Mesas",
+    "precio": 654700,
+    "stock": 5,
+    "descripcion": "Categoría: Mesas | Subcategoría: Exterior.",
+    "imagen": "img/productos/TT-044.jpg"
+  },
+  {
+    "codigo": "TT-045",
+    "nombre": "Funda Nittaku para 1 Paleta",
+    "categoria": "Accesorios",
+    "precio": 30500,
+    "stock": 46,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Fundas.",
+    "imagen": "img/productos/TT-045.jpg"
+  },
+  {
+    "codigo": "TT-046",
+    "nombre": "Camiseta Stiga Rojo Talla XL",
+    "categoria": "Vestuario",
+    "precio": 61600,
+    "stock": 57,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-046.jpg"
+  },
+  {
+    "codigo": "TT-047",
+    "nombre": "Camiseta Nittaku Negro Talla M",
+    "categoria": "Vestuario",
+    "precio": 31500,
+    "stock": 15,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-047.jpg"
+  },
+  {
+    "codigo": "TT-048",
+    "nombre": "Caja Pelotas Donic 3 Estrellas Naranja x6",
+    "categoria": "Pelotas",
+    "precio": 8800,
+    "stock": 65,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-048.jpg"
+  },
+  {
+    "codigo": "TT-049",
+    "nombre": "Short Joola Azul Talla L",
+    "categoria": "Vestuario",
+    "precio": 58000,
+    "stock": 52,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Shorts.",
+    "imagen": "img/productos/TT-049.jpg"
+  },
+  {
+    "codigo": "TT-050",
+    "nombre": "Caja Pelotas Tibhar Entrenamiento Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 32700,
+    "stock": 73,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-050.jpg"
+  },
+  {
+    "codigo": "TT-051",
+    "nombre": "Zapatillas Donic Pro Shoes Talla 45",
+    "categoria": "Vestuario",
+    "precio": 110600,
+    "stock": 85,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-051.jpg"
+  },
+  {
+    "codigo": "TT-052",
+    "nombre": "Caja Pelotas Butterfly Entrenamiento Blanco x3",
+    "categoria": "Pelotas",
+    "precio": 13700,
+    "stock": 83,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-052.jpg"
+  },
+  {
+    "codigo": "TT-053",
+    "nombre": "Madera Xiom Ice Cream AZX Defensiva",
+    "categoria": "Maderas",
+    "precio": 113100,
+    "stock": 69,
+    "descripcion": "Categoría: Maderas | Subcategoría: Defensiva (DEF).",
+    "imagen": "img/productos/TT-053.jpg"
+  },
+  {
+    "codigo": "TT-054",
+    "nombre": "Mesa de Tenis de Mesa Yasaka Progress Competición",
+    "categoria": "Mesas",
+    "precio": 1209300,
+    "stock": 8,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-054.jpg"
+  },
+  {
+    "codigo": "TT-055",
+    "nombre": "Madera Joola Rossi Emotion All-Round",
+    "categoria": "Maderas",
+    "precio": 46600,
+    "stock": 96,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-055.jpg"
+  },
+  {
+    "codigo": "TT-056",
+    "nombre": "Caja Pelotas Tibhar Entrenamiento Blanco x6",
+    "categoria": "Pelotas",
+    "precio": 16600,
+    "stock": 87,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-056.jpg"
+  },
+  {
+    "codigo": "TT-057",
+    "nombre": "Madera Yasaka Ma Lin Extra Offensive All-Round",
+    "categoria": "Maderas",
+    "precio": 90400,
+    "stock": 98,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-057.jpg"
+  },
+  {
+    "codigo": "TT-058",
+    "nombre": "Goma Stiga Mantra M Negra 2.0mm",
+    "categoria": "Gomas",
+    "precio": 62900,
+    "stock": 54,
+    "descripcion": "Categoría: Gomas | Subcategoría: Lisas.",
+    "imagen": "img/productos/TT-058.jpg"
+  },
+  {
+    "codigo": "TT-059",
+    "nombre": "Limpiador Yasaka de Gomas 100ml",
+    "categoria": "Accesorios",
+    "precio": 11400,
+    "stock": 22,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Limpiadores.",
+    "imagen": "img/productos/TT-059.jpg"
+  },
+  {
+    "codigo": "TT-060",
+    "nombre": "Camiseta Xiom Azul Talla XL",
+    "categoria": "Vestuario",
+    "precio": 43400,
+    "stock": 7,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-060.jpg"
+  },
+  {
+    "codigo": "TT-061",
+    "nombre": "Goma DHS Skyline TG3 Roja MAX",
+    "categoria": "Gomas",
+    "precio": 65900,
+    "stock": 25,
+    "descripcion": "Categoría: Gomas | Subcategoría: Picos Cortos.",
+    "imagen": "img/productos/TT-061.jpg"
+  },
+  {
+    "codigo": "TT-062",
+    "nombre": "Mesa de Tenis de Mesa Xiom Pro 9 Interior",
+    "categoria": "Mesas",
+    "precio": 849200,
+    "stock": 7,
+    "descripcion": "Categoría: Mesas | Subcategoría: Interior.",
+    "imagen": "img/productos/TT-062.jpg"
+  },
+  {
+    "codigo": "TT-063",
+    "nombre": "Mesa de Tenis de Mesa Butterfly Europa 25 Competición",
+    "categoria": "Mesas",
+    "precio": 1035700,
+    "stock": 7,
+    "descripcion": "Categoría: Mesas | Subcategoría: Competición.",
+    "imagen": "img/productos/TT-063.jpg"
+  },
+  {
+    "codigo": "TT-064",
+    "nombre": "Caja Pelotas Donic 3 Estrellas Naranja x120",
+    "categoria": "Pelotas",
+    "precio": 59100,
+    "stock": 6,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-064.jpg"
+  },
+  {
+    "codigo": "TT-065",
+    "nombre": "Madera Yasaka Alnade All-Round",
+    "categoria": "Maderas",
+    "precio": 127400,
+    "stock": 39,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-065.jpg"
+  },
+  {
+    "codigo": "TT-066",
+    "nombre": "Camiseta Butterfly Negro Talla XL",
+    "categoria": "Vestuario",
+    "precio": 61800,
+    "stock": 8,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-066.jpg"
+  },
+  {
+    "codigo": "TT-067",
+    "nombre": "Zapatillas Tibhar Pro Shoes Talla 41",
+    "categoria": "Vestuario",
+    "precio": 114700,
+    "stock": 84,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-067.jpg"
+  },
+  {
+    "codigo": "TT-068",
+    "nombre": "Zapatillas Joola Pro Shoes Talla 43",
+    "categoria": "Vestuario",
+    "precio": 83000,
+    "stock": 90,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-068.jpg"
+  },
+  {
+    "codigo": "TT-069",
+    "nombre": "Red Nittaku Profesional con Soporte",
+    "categoria": "Accesorios",
+    "precio": 16000,
+    "stock": 23,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Redes.",
+    "imagen": "img/productos/TT-069.jpg"
+  },
+  {
+    "codigo": "TT-070",
+    "nombre": "Caja Pelotas Nittaku Premium 3-Star Blanco x6",
+    "categoria": "Pelotas",
+    "precio": 39100,
+    "stock": 97,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-070.jpg"
+  },
+  {
+    "codigo": "TT-071",
+    "nombre": "Zapatillas Tibhar Pro Shoes Talla 42",
+    "categoria": "Vestuario",
+    "precio": 156600,
+    "stock": 43,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Zapatillas.",
+    "imagen": "img/productos/TT-071.jpg"
+  },
+  {
+    "codigo": "TT-072",
+    "nombre": "Funda Donic para 1 Paleta",
+    "categoria": "Accesorios",
+    "precio": 7700,
+    "stock": 84,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Fundas.",
+    "imagen": "img/productos/TT-072.jpg"
+  },
+  {
+    "codigo": "TT-073",
+    "nombre": "Caja Pelotas Xiom Entrenamiento Naranja x120",
+    "categoria": "Pelotas",
+    "precio": 45100,
+    "stock": 8,
+    "descripcion": "Categoría: Pelotas | Subcategoría: Entrenamiento.",
+    "imagen": "img/productos/TT-073.jpg"
+  },
+  {
+    "codigo": "TT-074",
+    "nombre": "Camiseta Yasaka Rojo Talla L",
+    "categoria": "Vestuario",
+    "precio": 47100,
+    "stock": 59,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-074.jpg"
+  },
+  {
+    "codigo": "TT-075",
+    "nombre": "Camiseta Stiga Negro Talla S",
+    "categoria": "Vestuario",
+    "precio": 29800,
+    "stock": 30,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Camisetas.",
+    "imagen": "img/productos/TT-075.jpg"
+  },
+  {
+    "codigo": "TT-076",
+    "nombre": "Limpiador Butterfly de Gomas 100ml",
+    "categoria": "Accesorios",
+    "precio": 28600,
+    "stock": 80,
+    "descripcion": "Categoría: Accesorios | Subcategoría: Limpiadores.",
+    "imagen": "img/productos/TT-076.jpg"
+  },
+  {
+    "codigo": "TT-077",
+    "nombre": "Caja Pelotas DHS 3 Estrellas Naranja x6",
+    "categoria": "Pelotas",
+    "precio": 46000,
+    "stock": 79,
+    "descripcion": "Categoría: Pelotas | Subcategoría: 3 Estrellas.",
+    "imagen": "img/productos/TT-077.jpg"
+  },
+  {
+    "codigo": "TT-078",
+    "nombre": "Short Xiom Azul Talla M",
+    "categoria": "Vestuario",
+    "precio": 26500,
+    "stock": 63,
+    "descripcion": "Categoría: Vestuario | Subcategoría: Shorts.",
+    "imagen": "img/productos/TT-078.jpg"
+  },
+  {
+    "codigo": "TT-079",
+    "nombre": "Madera Joola Santoru Ofensiva",
+    "categoria": "Maderas",
+    "precio": 272800,
+    "stock": 100,
+    "descripcion": "Categoría: Maderas | Subcategoría: Ofensiva (OFF).",
+    "imagen": "img/productos/TT-079.jpg"
+  },
+  {
+    "codigo": "TT-080",
+    "nombre": "Madera Xiom Stradivarius All-Round",
+    "categoria": "Maderas",
+    "precio": 219400,
+    "stock": 18,
+    "descripcion": "Categoría: Maderas | Subcategoría: All-Round (ALL).",
+    "imagen": "img/productos/TT-080.jpg"
+  }
+]
