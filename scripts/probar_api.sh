@@ -1,49 +1,50 @@
 #!/usr/bin/env bash
-# Prueba el flujo completo. Se puede ejecutar varias veces sin conflictos.
+# Prueba el flujo completo contra el servidor en marcha.
+# Uso: bash scripts/probar_api.sh [URL_BASE]
 BASE="${1:-http://localhost:8080}"
 API="$BASE/api/v1"
-SUFIJO=$(date +%s)
 
 json() { python3 -c "import sys,json; print(json.load(sys.stdin)$1)"; }
-login() { curl -s -X POST "$API/auth/login" -H "Content-Type: application/json" \
-  -d "{\"email\":\"$1\",\"password\":\"$2\"}" | json "['token']"; }
 
-echo "== 1. Login CLIENTE y ADMIN"
-TOKEN_CLI=$(login cliente@prospin.cl Cliente123)
-TOKEN_ADM=$(login admin@prospin.cl Admin12345)
-echo "cliente: ${TOKEN_CLI:0:15}...  admin: ${TOKEN_ADM:0:15}..."
+echo "== 1. Login como CLIENTE"
+TOKEN_CLI=$(curl -s -X POST "$API/auth/login" -H "Content-Type: application/json" \
+  -d '{"email":"cliente@prospin.cl","password":"Cliente123"}' | json "['token']")
+echo "token cliente obtenido: ${TOKEN_CLI:0:20}..."
 
-echo "== 2. Listar productos (cliente)"
-curl -s "$API/productos" -H "Authorization: Bearer $TOKEN_CLI" | python3 -c "import sys,json; print(len(json.load(sys.stdin)),'productos')"
+echo "== 2. Login como ADMIN"
+TOKEN_ADM=$(curl -s -X POST "$API/auth/login" -H "Content-Type: application/json" \
+  -d '{"email":"admin@prospin.cl","password":"Admin12345"}' | json "['token']")
 
-echo "== 3. Cliente intenta crear producto (esperado 403)"
+echo "== 3. Listar productos (cliente)"
+curl -s "$API/productos" -H "Authorization: Bearer $TOKEN_CLI" | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d),'productos')"
+
+echo "== 4. Cliente intenta crear producto (debe ser 403)"
 curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/productos" \
   -H "Authorization: Bearer $TOKEN_CLI" -H "Content-Type: application/json" \
   -d '{"codigo":"X-1","nombre":"x","precio":1,"stock":1,"categoriaId":1}'
 
-echo "== 4. Sin token (esperado 401)"
+echo "== 5. Sin token (debe ser 401)"
 curl -s -o /dev/null -w "%{http_code}\n" "$API/productos"
 
-echo "== 5. Comprar 2 unidades de TT-001"
+echo "== 6. Comprar 2 unidades de TT-001"
 ID=$(curl -s "$API/productos" -H "Authorization: Bearer $TOKEN_CLI" | python3 -c "import sys,json; print([p['id'] for p in json.load(sys.stdin) if p['codigo']=='TT-001'][0])")
 curl -s -X POST "$API/boletas" -H "Authorization: Bearer $TOKEN_CLI" -H "Content-Type: application/json" \
-  -d "{\"items\":[{\"productoId\":$ID,\"cantidad\":2}]}" | python3 -c "import sys,json; b=json.load(sys.stdin); print('boleta', b['id'], 'total', b['total'])"
+  -d "{\"items\":[{\"productoId\":$ID,\"cantidad\":2}]}" | python3 -m json.tool | head -30
 
-echo "== 6. Cantidad mayor al stock (esperado 409)"
+echo "== 7. Cantidad mayor al stock (debe ser 409)"
 curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/boletas" -H "Authorization: Bearer $TOKEN_CLI" \
-  -H "Content-Type: application/json" -d "{\"items\":[{\"productoId\":$ID,\"cantidad\":99}]}"
+  -H "Content-Type: application/json" -d "{\"items\":[{\"productoId\":$ID,\"cantidad\":9999}]}"
 
-echo "== 7. Admin lista todas las boletas"
+echo "== 8. Admin lista todas las boletas"
 curl -s "$API/boletas" -H "Authorization: Bearer $TOKEN_ADM" | python3 -c "import sys,json; print(len(json.load(sys.stdin)),'boletas')"
 
-echo "== 8. Admin crea categoria y producto (esperado 201)"
+echo "== 9. Crear categoría y producto (admin)"
 CAT=$(curl -s -X POST "$API/categorias" -H "Authorization: Bearer $TOKEN_ADM" -H "Content-Type: application/json" \
-  -d "{\"nombre\":\"Prueba-$SUFIJO\"}" | json "['id']")
+  -d '{"nombre":"Pruebas"}' | json "['id']")
 curl -s -o /dev/null -w "crear producto: %{http_code}\n" -X POST "$API/productos" -H "Authorization: Bearer $TOKEN_ADM" \
-  -H "Content-Type: application/json" \
-  -d "{\"codigo\":\"TEST-$SUFIJO\",\"nombre\":\"Test\",\"precio\":100,\"stock\":5,\"categoriaId\":$CAT}"
+  -H "Content-Type: application/json" -d "{\"codigo\":\"TEST-1\",\"nombre\":\"Test\",\"precio\":100,\"stock\":5,\"categoriaId\":$CAT}"
 
-echo "== 9. Renovar token (esperado 200)"
+echo "== 10. Renovar token"
 curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/auth/refresh" -H "Authorization: Bearer $TOKEN_ADM"
 
 echo "Listo."
