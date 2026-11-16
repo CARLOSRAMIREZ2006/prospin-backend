@@ -29,8 +29,12 @@ class JwtServiceTest {
     @Test
     void rechazaUnTokenConFirmaAlterada() {
         String token = jwt.generar(usuario());
-        char ultimo = token.charAt(token.length() - 1);
-        String alterado = token.substring(0, token.length() - 1) + (ultimo == 'A' ? 'B' : 'A');
+        String[] partes = token.split("\\.");
+        String firma = partes[2];
+        int medio = firma.length() / 2;
+        char nuevo = firma.charAt(medio) == 'A' ? 'B' : 'A';
+        String firmaAlterada = firma.substring(0, medio) + nuevo + firma.substring(medio + 1);
+        String alterado = partes[0] + "." + partes[1] + "." + firmaAlterada;
         assertThrows(JwtException.class, () -> jwt.validar(alterado));
     }
 
