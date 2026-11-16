@@ -109,7 +109,7 @@ public class PagoService {
                     && Integer.valueOf(0).equals(datos.get("response_code"));
             if (aprobada) {
                 boletas.marcarPagada(boleta.getId());
-                mail.confirmacionCompra(boleta.getUsuario().getEmail(), boleta.getId(), boleta.getTotal());
+                mail.boletaPagada(boletas.cargarCompleta(boleta.getId()));
             } else {
                 boletas.rechazar(boleta.getId());
             }

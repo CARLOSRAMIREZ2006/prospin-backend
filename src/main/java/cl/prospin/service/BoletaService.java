@@ -137,6 +137,14 @@ public class BoletaService {
         boletas.save(boleta);
     }
 
+    @Transactional(readOnly = true)
+    public Boleta cargarCompleta(Long id) {
+        Boleta boleta = porId(id);
+        boleta.getDetalles().size(); // carga las líneas dentro de la transacción
+        boleta.getUsuario().getEmail();
+        return boleta;
+    }
+
     private Boleta porId(Long id) {
         return boletas.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Boleta no encontrada"));

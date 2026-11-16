@@ -8,6 +8,8 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import cl.prospin.model.Boleta;
+import cl.prospin.model.DetalleBoleta;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -48,6 +50,25 @@ public class MailService {
                 + "Puedes revisar el detalle en la sección Pedidos de la tienda.\n\nProSpin Tenis de Mesa");
     }
 
+    // Boleta pagada: incluye cada producto, cantidad y subtotal
+    public void boletaPagada(Boleta boleta) {
+        StringBuilder lineas = new StringBuilder();
+        for (DetalleBoleta d : boleta.getDetalles()) {
+            lineas.append("- ").append(d.getProducto().getNombre())
+                  .append(" x ").append(d.getCantidad())
+                  .append(" = ").append(formato(d.getSubtotal())).append("\n");
+        }
+        enviar(boleta.getUsuario().getEmail(), "ProSpin: boleta N° " + boleta.getId() + " pagada",
+                "Hola,\n\nTu pago fue aprobado por Webpay. Este es el detalle de tu compra:\n\n"
+                + lineas + "\nTotal pagado: " + formato(boleta.getTotal()) + " CLP\n"
+                + "Fecha: " + boleta.getFecha().format(FORMATO) + "\n\n"
+                + "Gracias por comprar en ProSpin Tenis de Mesa.");
+    }
+
+    private String formato(Integer monto) {
+        return "$" + String.format("%,d", monto).replace(',', '.');
+    }
+
     private void enviar(String para, String asunto, String texto) {
         if (!habilitado) {
             log.info("Correo desactivado (app.mail.enabled=false): {}", asunto);
@@ -67,6 +88,9 @@ public class MailService {
             servidor.send(mensaje);
         } catch (MailException e) {
             log.warn("No se pudo enviar el correo a {}: {}", para, e.getMessage());
+        } catch (RuntimeException e) {
+            // Cualquier otro error del correo no debe afectar al pago ni al inicio de sesión
+            log.warn("Error inesperado al enviar correo a {}: {}", para, e.getMessage());
         }
     }
 }
