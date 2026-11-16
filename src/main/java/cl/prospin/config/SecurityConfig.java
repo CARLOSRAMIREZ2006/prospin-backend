@@ -41,6 +41,10 @@ public class SecurityConfig {
                 .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll()
                 .requestMatchers("/h2-console/**", "/error").permitAll()
 
+                // Retorno desde Webpay (el navegador llega sin token) e inicio de pago
+                .requestMatchers("/api/v1/pagos/retorno").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/pagos/iniciar").hasAnyRole("ADMIN", "CLIENTE")
+
                 // Renovar token: requiere un token válido
                 .requestMatchers("/api/v1/auth/refresh").authenticated()
 

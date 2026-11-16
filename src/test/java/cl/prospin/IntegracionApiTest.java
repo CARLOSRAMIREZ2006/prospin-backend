@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestPropertySource(properties = "spring.datasource.url=jdbc:h2:mem:prospin-test;DB_CLOSE_DELAY=-1")
+@TestPropertySource(properties = {"spring.datasource.url=jdbc:h2:mem:prospin-test;DB_CLOSE_DELAY=-1", "app.mail.enabled=false"})
 class IntegracionApiTest {
 
     private static final String ADMIN = "admin@prospin.cl";

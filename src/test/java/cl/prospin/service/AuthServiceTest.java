@@ -27,6 +27,7 @@ class AuthServiceTest {
     @Mock private UsuarioRepository usuarios;
     @Mock private PasswordEncoder encoder;
     @Mock private JwtService jwt;
+    @Mock private MailService mail;
     @InjectMocks private AuthService service;
 
     private Usuario admin() {

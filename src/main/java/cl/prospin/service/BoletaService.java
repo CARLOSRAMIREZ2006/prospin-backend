@@ -44,6 +44,16 @@ public class BoletaService {
 
     @Transactional
     public Boleta crear(String emailCliente, List<ItemBoleta> items) {
+        return construir(emailCliente, items, "PAGADA");
+    }
+
+    // Boleta a la espera del pago en Webpay: reserva el stock hasta confirmar o rechazar
+    @Transactional
+    public Boleta crearPendiente(String emailCliente, List<ItemBoleta> items) {
+        return construir(emailCliente, items, "PENDIENTE");
+    }
+
+    private Boleta construir(String emailCliente, List<ItemBoleta> items, String estado) {
         Usuario usuario = usuarios.findByEmail(emailCliente)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario no válido"));
 
@@ -56,6 +66,7 @@ public class BoletaService {
         Boleta boleta = new Boleta();
         boleta.setUsuario(usuario);
         boleta.setFecha(LocalDateTime.now());
+        boleta.setEstado(estado);
 
         int total = 0;
         for (Map.Entry<Long, Integer> entrada : cantidades.entrySet()) {
@@ -90,6 +101,45 @@ public class BoletaService {
 
         boleta.setTotal(total);
         return boletas.save(boleta);
+    }
+
+    @Transactional
+    public void guardarToken(Long boletaId, String token) {
+        Boleta boleta = porId(boletaId);
+        boleta.setTokenWebpay(token);
+        boletas.save(boleta);
+    }
+
+    @Transactional(readOnly = true)
+    public Boleta buscarPorToken(String token) {
+        return boletas.findByTokenWebpay(token)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pago no encontrado"));
+    }
+
+    @Transactional
+    public void marcarPagada(Long boletaId) {
+        Boleta boleta = porId(boletaId);
+        boleta.setEstado("PAGADA");
+        boletas.save(boleta);
+    }
+
+    // Libera el stock reservado solo si la boleta seguía pendiente (evita devolverlo dos veces)
+    @Transactional
+    public void rechazar(Long boletaId) {
+        Boleta boleta = porId(boletaId);
+        if (!"PENDIENTE".equals(boleta.getEstado())) return;
+        for (DetalleBoleta detalle : boleta.getDetalles()) {
+            Producto producto = detalle.getProducto();
+            producto.setStock(producto.getStock() + detalle.getCantidad());
+            productos.save(producto);
+        }
+        boleta.setEstado("RECHAZADA");
+        boletas.save(boleta);
+    }
+
+    private Boleta porId(Long id) {
+        return boletas.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Boleta no encontrada"));
     }
 
     // ADMIN y VENDEDOR ven todas las boletas; el CLIENTE solo las suyas

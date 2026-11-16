@@ -30,6 +30,13 @@ public class Boleta {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
+    // PENDIENTE (esperando a Webpay), PAGADA, RECHAZADA
+    @Column(nullable = false, length = 20)
+    private String estado = "PAGADA";
+
+    @Column(length = 120)
+    private String tokenWebpay;
+
     @OneToMany(mappedBy = "boleta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleBoleta> detalles = new ArrayList<>();
 

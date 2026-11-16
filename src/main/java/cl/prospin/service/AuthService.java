@@ -7,6 +7,8 @@ import cl.prospin.model.Rol;
 import cl.prospin.model.Usuario;
 import cl.prospin.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
+
+import java.time.LocalDateTime;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +20,13 @@ public class AuthService {
     private final UsuarioRepository usuarios;
     private final PasswordEncoder encoder;
     private final JwtService jwt;
+    private final MailService mail;
 
-    public AuthService(UsuarioRepository usuarios, PasswordEncoder encoder, JwtService jwt) {
+    public AuthService(UsuarioRepository usuarios, PasswordEncoder encoder, JwtService jwt, MailService mail) {
         this.usuarios = usuarios;
         this.encoder = encoder;
         this.jwt = jwt;
+        this.mail = mail;
     }
 
     // Registro público: todo usuario nuevo es CLIENTE. Solo el ADMIN puede crear otros roles.
@@ -45,6 +49,7 @@ public class AuthService {
         Usuario u = usuarios.findByEmail(normalizarEmail(req.email()))
                 .filter(x -> encoder.matches(req.password(), x.getPassword()))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciales inválidas"));
+        mail.avisoInicioSesion(u.getEmail(), LocalDateTime.now());
         return respuestaToken(u);
     }
 
