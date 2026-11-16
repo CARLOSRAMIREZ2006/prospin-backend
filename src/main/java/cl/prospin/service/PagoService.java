@@ -65,20 +65,23 @@ public class PagoService {
         h.setContentType(MediaType.APPLICATION_JSON);
         h.set("Tbk-Api-Key-Id", codigoComercio);
         h.set("Tbk-Api-Key-Secret", apiSecret);
+        // Webpay (Imperva) bloquea el identificador por defecto de Java; se envía uno de navegador
+        h.set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) ProSpin/1.0");
+        h.setAccept(java.util.List.of(MediaType.APPLICATION_JSON));
         return h;
     }
 
     // Crea la boleta pendiente y la transacción en Webpay; devuelve la URL y el token para redirigir al cliente
     // baseUrl es la dirección por la que llegó el cliente (p. ej. http://IP-actual), así no depende de una IP fija
-    public Map<String, Object> iniciar(String email, List<ItemBoleta> items, String baseUrl) {
+    public Map<String, Object> iniciar(String email, List<ItemBoleta> items, String dirPublica) {
         Boleta boleta = boletas.crearPendiente(email, items);
         Map<String, Object> cuerpo = Map.of(
                 "buy_order", "B" + boleta.getId(),
                 "session_id", "S" + boleta.getId() + UUID.randomUUID().toString().replace("-", "").substring(0, 8),
                 "amount", boleta.getTotal(),
-                "return_url", baseUrl + "/api/v1/pagos/retorno");
+                "return_url", dirPublica + "/api/v1/pagos/retorno");
         try {
-            ResponseEntity<Map> r = http.exchange(baseUrl + RUTA, HttpMethod.POST,
+            ResponseEntity<Map> r = http.exchange(this.baseUrl + RUTA, HttpMethod.POST,
                     new HttpEntity<>(cuerpo, cabeceras()), Map.class);
             Map<?, ?> datos = r.getBody();
             String token = (String) datos.get("token");
