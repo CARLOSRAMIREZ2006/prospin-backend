@@ -119,6 +119,14 @@ public class BoletaService {
     @Transactional
     public void marcarPagada(Long boletaId) {
         Boleta boleta = porId(boletaId);
+        // Si el banco aprueba una boleta que se había marcado como rechazada, el stock se vuelve a descontar
+        if ("RECHAZADA".equals(boleta.getEstado())) {
+            for (DetalleBoleta detalle : boleta.getDetalles()) {
+                Producto producto = detalle.getProducto();
+                producto.setStock(producto.getStock() - detalle.getCantidad());
+                productos.save(producto);
+            }
+        }
         boleta.setEstado("PAGADA");
         boletas.save(boleta);
     }

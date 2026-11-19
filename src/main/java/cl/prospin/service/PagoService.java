@@ -96,7 +96,8 @@ public class PagoService {
     }
 
     // Confirma la transacción al volver de Webpay (commit)
-    public Resultado confirmar(String token) {
+    // synchronized: si llegan dos confirmaciones a la vez, se procesan una después de la otra
+    public synchronized Resultado confirmar(String token) {
         Boleta boleta = boletas.buscarPorToken(token);
         if ("PAGADA".equals(boleta.getEstado())) {
             return new Resultado(boleta.getId(), true); // ya confirmada (p. ej., al recargar la página)
@@ -116,6 +117,11 @@ public class PagoService {
             return new Resultado(boleta.getId(), aprobada);
         } catch (RestClientException e) {
             log.warn("Webpay (confirmar transacción) falló: {}", e.getMessage());
+            // Si otra confirmación ya aprobó la boleta, el error es solo de la repetición: el pago sí quedó hecho
+            Boleta actual = boletas.buscarPorToken(token);
+            if ("PAGADA".equals(actual.getEstado())) {
+                return new Resultado(actual.getId(), true);
+            }
             boletas.rechazar(boleta.getId());
             return new Resultado(boleta.getId(), false);
         }
