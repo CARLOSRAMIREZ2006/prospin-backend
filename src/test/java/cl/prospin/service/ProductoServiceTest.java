@@ -26,24 +26,37 @@ class ProductoServiceTest {
     @Mock private CategoriaRepository categorias;
     @InjectMocks private ProductoService service;
 
-    private ProductoRequest req(String codigo, long categoriaId) {
-        return new ProductoRequest(codigo, " Goma test ", "desc", 1500, 10, "img/productos/x.jpg", categoriaId);
+    private ProductoRequest req(String codigo) {
+        return new ProductoRequest(codigo, " Goma test ", "desc", 1500, 10);
     }
 
     @Test
-    void crearAplicaCamposYCategoriaDelRequest() {
-        Categoria cat = new Categoria("Gomas");
+    void crearUsaCategoriaGeneralEImagenPendiente() {
+        Categoria general = new Categoria("General");
         when(productos.existsByCodigo("TT-900")).thenReturn(false);
-        when(categorias.findById(3L)).thenReturn(Optional.of(cat));
+        when(categorias.findByNombre("General")).thenReturn(Optional.of(general));
         when(productos.save(any(Producto.class))).thenAnswer(i -> i.getArgument(0));
 
-        Producto p = service.crear(req("TT-900", 3L));
+        Producto p = service.crear(req("TT-900"));
 
         assertEquals("TT-900", p.getCodigo());
         assertEquals("Goma test", p.getNombre());
         assertEquals(1500, p.getPrecio());
         assertEquals(10, p.getStock());
-        assertSame(cat, p.getCategoria());
+        assertSame(general, p.getCategoria());
+        assertEquals("img/productos/sin-foto.svg", p.getImagen());
+    }
+
+    @Test
+    void crearCreaLaCategoriaGeneralSiNoExiste() {
+        when(productos.existsByCodigo("TT-901")).thenReturn(false);
+        when(categorias.findByNombre("General")).thenReturn(Optional.empty());
+        when(categorias.save(any(Categoria.class))).thenAnswer(i -> i.getArgument(0));
+        when(productos.save(any(Producto.class))).thenAnswer(i -> i.getArgument(0));
+
+        Producto p = service.crear(req("TT-901"));
+
+        assertEquals("General", p.getCategoria().getNombre());
     }
 
     @Test
@@ -51,21 +64,9 @@ class ProductoServiceTest {
         when(productos.existsByCodigo("TT-001")).thenReturn(true);
 
         ResponseStatusException ex = assertThrows(ResponseStatusException.class,
-                () -> service.crear(req("TT-001", 1L)));
+                () -> service.crear(req("TT-001")));
 
         assertEquals(HttpStatus.CONFLICT, ex.getStatusCode());
-        verify(productos, never()).save(any());
-    }
-
-    @Test
-    void crearConCategoriaInexistenteDevuelve400() {
-        when(productos.existsByCodigo("TT-901")).thenReturn(false);
-        when(categorias.findById(99L)).thenReturn(Optional.empty());
-
-        ResponseStatusException ex = assertThrows(ResponseStatusException.class,
-                () -> service.crear(req("TT-901", 99L)));
-
-        assertEquals(HttpStatus.BAD_REQUEST, ex.getStatusCode());
         verify(productos, never()).save(any());
     }
 

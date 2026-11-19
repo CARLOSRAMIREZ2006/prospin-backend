@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
         name = "bearerAuth",
         type = SecuritySchemeType.HTTP,
         scheme = "bearer",
-        bearerFormat = "JWT")
+        bearerFormat = "JWT",
+        description = "Pega solo el token que devuelve POST /api/v1/auth/login. No escribas la palabra Bearer.")
 public class OpenApiConfig {
 }

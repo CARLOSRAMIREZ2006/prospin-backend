@@ -12,12 +12,11 @@ public final class CatalogoDto {
     public record CategoriaRequest(
             @NotBlank @Size(max = 80) String nombre) {}
 
+    // Sin imagen ni categoría: el producto nuevo queda en "General" con foto pendiente
     public record ProductoRequest(
             @NotBlank @Size(max = 20) String codigo,
             @NotBlank @Size(max = 150) String nombre,
             @Size(max = 500) String descripcion,
             @NotNull @Min(0) Integer precio,
-            @NotNull @Min(0) Integer stock,
-            @Size(max = 200) String imagen,
-            @NotNull Long categoriaId) {}
+            @NotNull @Min(0) Integer stock) {}
 }

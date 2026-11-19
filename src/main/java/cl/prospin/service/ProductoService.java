@@ -15,6 +15,9 @@ import java.util.List;
 @Service
 public class ProductoService {
 
+    static final String CATEGORIA_POR_DEFECTO = "General";
+    static final String IMAGEN_POR_DEFECTO = "img/productos/sin-foto.svg";
+
     private final ProductoRepository productos;
     private final CategoriaRepository categorias;
 
@@ -38,6 +41,8 @@ public class ProductoService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un producto con ese código");
         }
         Producto p = new Producto();
+        p.setCategoria(categoriaPorDefecto());
+        p.setImagen(IMAGEN_POR_DEFECTO);
         aplicar(p, req);
         return productos.save(p);
     }
@@ -48,7 +53,7 @@ public class ProductoService {
         if (!req.codigo().equals(p.getCodigo()) && productos.existsByCodigo(req.codigo())) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un producto con ese código");
         }
-        aplicar(p, req);
+        aplicar(p, req); // la categoría y la imagen se conservan
         return productos.save(p);
     }
 
@@ -57,15 +62,16 @@ public class ProductoService {
         productos.delete(obtener(id));
     }
 
+    private Categoria categoriaPorDefecto() {
+        return categorias.findByNombre(CATEGORIA_POR_DEFECTO)
+                .orElseGet(() -> categorias.save(new Categoria(CATEGORIA_POR_DEFECTO)));
+    }
+
     private void aplicar(Producto p, ProductoRequest req) {
-        Categoria categoria = categorias.findById(req.categoriaId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "La categoría indicada no existe"));
         p.setCodigo(req.codigo().trim());
         p.setNombre(req.nombre().trim());
         p.setDescripcion(req.descripcion());
         p.setPrecio(req.precio());
         p.setStock(req.stock());
-        p.setImagen(req.imagen());
-        p.setCategoria(categoria);
     }
 }

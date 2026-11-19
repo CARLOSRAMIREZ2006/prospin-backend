@@ -1,5 +1,6 @@
 package cl.prospin.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,7 @@ public class Producto {
     @Column(nullable = false)
     private Integer stock;
 
+    @Schema(hidden = true)
     @Column(length = 200)
     private String imagen;
 

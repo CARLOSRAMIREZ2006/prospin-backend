@@ -1,6 +1,7 @@
 package cl.prospin.service;
 
 import cl.prospin.dto.UsuarioRequest;
+import cl.prospin.model.Rol;
 import cl.prospin.model.Usuario;
 import cl.prospin.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,7 @@ public class UsuarioService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "El correo ya está registrado");
         }
         Usuario u = new Usuario();
+        u.setRol(Rol.CLIENTE); // todo usuario creado por Swagger es cliente
         aplicar(u, req, email);
         return usuarios.save(u);
     }
@@ -49,7 +51,7 @@ public class UsuarioService {
         if (!email.equals(u.getEmail()) && usuarios.existsByEmail(email)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "El correo ya está registrado");
         }
-        aplicar(u, req, email);
+        aplicar(u, req, email); // el rol se conserva
         return usuarios.save(u);
     }
 
@@ -62,6 +64,5 @@ public class UsuarioService {
         u.setNombre(req.nombre().trim());
         u.setEmail(email);
         u.setPassword(encoder.encode(req.password()));
-        u.setRol(req.rol());
     }
 }

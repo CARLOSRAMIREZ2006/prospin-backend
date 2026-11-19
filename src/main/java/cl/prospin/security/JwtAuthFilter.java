@@ -37,7 +37,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String header = request.getHeader("Authorization");
         if (header != null && header.startsWith(PREFIJO)) {
             try {
-                Claims claims = jwtService.validar(header.substring(PREFIJO.length()));
+                String token = header.substring(PREFIJO.length()).trim();
+                // Swagger agrega "Bearer" por su cuenta: si llega repetido, se quita
+                while (token.startsWith(PREFIJO)) {
+                    token = token.substring(PREFIJO.length()).trim();
+                }
+                Claims claims = jwtService.validar(token);
                 String rol = claims.get("rol", String.class);
                 var auth = new UsernamePasswordAuthenticationToken(
                         claims.getSubject(),
